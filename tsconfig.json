@@ -1,0 +1,60 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "outDir": "./dist/electron/main",
+    "sourceMap": true,
+    "declaration": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2017",
+    "paths": {
+      "@config/*": [
+        "config/*"
+      ],
+      "@renderer/*": [
+        "src/renderer/*"
+      ],
+      "@main/*": [
+        "src/main/*"
+      ]
+    },
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  },
+  "include": [
+    "src/**/*",
+    "types/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "pluginOptions": {
+    "electronBuilder": {
+      "nodeIntegration": true,
+      "preload": "static/preload.html",
+      "builderOptions": {
+        "nsis": {
+          "perMachine": true
+        },
+        "publish": [
+          {
+            "provider": "generic",
+            "url": "http://www.fcode.ltd/files"
+          }
+        ]
+      }
+    }
+  }
+}
